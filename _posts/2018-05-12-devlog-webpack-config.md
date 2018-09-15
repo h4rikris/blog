@@ -1,8 +1,10 @@
 ---
 layout: post
-title: "Devlog: Webpack config and case sensitive filesystems"
-tags: ['devlog']
-date: 2018-05-12 12:24 +0530
+title: 'Devlog: Webpack config and case sensitive filesystems'
+tags:
+  - devlog
+date: '2018-05-12 12:24 +0530'
+published: true
 ---
 
 I was setting up my dev machine to work on react project. Like any other react project all I have to do is run these commands.
@@ -49,7 +51,7 @@ resolve: {
 ```
 This throwed me much bigger list of errors. This time modules in our app resolved properly but modules under `node_modules` hadn't resolved properly. Modules in `node_modules` uses general convention of having `index.js`. But in our app we used `Index.js` (Observe the starting letter capitalized).
 Now I have two solutions
-  - changing all `Index.js` files to `index.js` in out app or
+  - changing all `Index.js` files to `index.js` in our app or
   - Add `Index` and `index` both to `mainFiles` config field
 
 I chose the second approach since it's just one line change. YESSS..**It worked**. In webpack documentation default value for `mainFiles` field is `['index']`. We have `Index.js` files in our modules as a entry point.
